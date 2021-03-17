@@ -1,0 +1,12 @@
+
+~/nRF5_SDK_15.3.0_59ac345/examples/ble_peripheral
+$ cp -a ble_app_blinky dongle6_blinky
+
+$ cd dongle6_blinky/
+
+$ ls -F
+ble_app_blinky.eww*  hex/  main.c*  pca10040/  pca10040e/  pca10056/  pca10056e/  pca10059/
+
+$ rm -r pca10040 pca10040e pca10056 pca10056e
+
+
