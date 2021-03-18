@@ -10,3 +10,15 @@ ble_app_blinky.eww*  hex/  main.c*  pca10040/  pca10040e/  pca10056/  pca10056e/
 $ rm -r pca10040 pca10040e pca10056 pca10056e
 
 
+
+changes: uart1 rx on port 15 tx on 17
+
+  [1] add components/libraries/fifo and components/libraries/uart to the include path
+  [2] add uart1 app
+  [3] enable fifo and uart app
+  [4] add timer1 and ms time
+  [5] add user logic to the main()
+
+  build the "debug" configuration because files and include paths are to be added to the "release".
+
+

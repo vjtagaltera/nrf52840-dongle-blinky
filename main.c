@@ -577,13 +577,42 @@ int main(void)
     advertising_init();
     conn_params_init();
 
+    // User logic: uart1 and timer1:
+    extern void main_uart1_init(void);
+    main_uart1_init();
+    extern void start_timer_1(void);
+    start_timer_1();
+
+    // User start time: 
+    extern uint32_t ms_time_get(void);
+    uint32_t ms_0 = ms_time_get();
+
     // Start execution.
     NRF_LOG_INFO("Blinky example started.");
     advertising_start();
 
+    // User states data for main loop
+    uint32_t ms_1 = ms_time_get(); // for logging
+    uint32_t ms_2 = ms_1; // for uart echoing
+    uint32_t loop_count = 0;
+
     // Enter main loop.
     for (;;)
     {
+        // User main loop logic:
+        loop_count ++;
+        uint32_t ms_now = ms_time_get();
+        if ( ms_now - ms_1 >= 20 * 1000 ) {
+            NRF_LOG_INFO("Blinky example time %u. loop %u.", ms_now - ms_0, loop_count);
+            ms_1 = ms_now;
+        }
+        if ( ms_now - ms_2 >= 100 ) {
+            extern void main_uart1_check_echo(void);
+            main_uart1_check_echo();
+            ms_2 = ms_now;
+        }
+
+        // idle
         idle_state_handle();
     }
 }

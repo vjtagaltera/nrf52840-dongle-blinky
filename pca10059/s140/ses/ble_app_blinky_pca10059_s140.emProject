@@ -64,6 +64,9 @@
       <file file_name="../../../../../../components/libraries/ringbuf/nrf_ringbuf.c" />
       <file file_name="../../../../../../components/libraries/experimental_section_vars/nrf_section_iter.c" />
       <file file_name="../../../../../../components/libraries/strerror/nrf_strerror.c" />
+      <file file_name="../../../../../../components/libraries/uart/app_uart_fifo.c" />
+      <file file_name="../../../../../../components/libraries/uart/retarget.c" />
+      <file file_name="../../../../../../components/libraries/fifo/app_fifo.c" />
     </folder>
     <folder Name="None">
       <file file_name="../../../../../../modules/nrfx/mdk/ses_startup_nrf52840.s" />
@@ -86,6 +89,7 @@
     <folder Name="Application">
       <file file_name="../../../main.c" />
       <file file_name="../config/sdk_config.h" />
+      <file file_name="../../../main_uart1.c" />
     </folder>
     <folder Name="nRF_Segger_RTT">
       <file file_name="../../../../../../external/segger_rtt/SEGGER_RTT.c" />
@@ -117,5 +121,6 @@
     gcc_optimization_level="Optimize For Size" />
   <configuration Name="Debug"
     c_preprocessor_definitions="DEBUG; DEBUG_NRF"
+    c_user_include_directories="../../../../../../components/libraries/fifo;../../../../../../components/libraries/uart"
     gcc_optimization_level="None"/>
 </solution>
